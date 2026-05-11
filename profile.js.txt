@@ -1,0 +1,18 @@
+$('#saveBtn').click(function () {
+
+        $.ajax({
+            url: 'http://localhost/project/backend/updateProfile.php',
+            type: 'POST',
+            data: {
+                userId: userId,
+                age: $('#age').val(),
+                dob: $('#dob').val(),
+                contact: $('#contact').val()
+            },
+            success: function (response) {
+                alert(response.message);
+            }
+        });
+    });
+
+

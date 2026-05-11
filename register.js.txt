@@ -1,0 +1,24 @@
+$(document).ready(function () {
+
+    $('#registerBtn').click(function () {
+
+        $.ajax({
+            url: 'http://localhost/project/backend/register.php',
+            type: 'POST',
+            data: {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                password: $('#password').val()
+            },
+            success: function (response) {
+
+                if (response.status) {
+                    alert(response.message);
+                    window.location.href = 'login.html';
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
+    });
+});

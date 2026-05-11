@@ -1,0 +1,29 @@
+$(document).ready(function () {
+
+    $('#loginBtn').click(function () {
+
+        $.ajax({
+            url: 'http://localhost/project/backend/login.php',
+            type: 'POST',
+            data: {
+                email: $('#email').val(),
+                password: $('#password').val()
+            },
+            success: function (response) {
+
+                if (response.status) {
+
+                    localStorage.setItem('sessionId', response.sessionId);
+                    localStorage.setItem('userId', response.userId);
+
+                    alert(response.message);
+
+                    window.location.href = 'profile.html';
+
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
+    });
+});

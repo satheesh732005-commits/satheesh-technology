@@ -1,0 +1,19 @@
+<?php
+
+include 'mongo.php';
+
+$email = $_POST['email'];
+$age = $_POST['age'];
+$dob = $_POST['dob'];
+$contact = $_POST['contact'];
+
+$data = [
+    "email" => $email,
+    "age" => $age,
+    "dob" => $dob,
+    "contact" => $contact
+];
+
+$collection->insertOne($data);
+
+echo "Profile Saved Successfully";
